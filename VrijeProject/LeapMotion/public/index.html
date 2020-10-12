@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/socket.io/socket.io.js"></script>
+    <title>Arduino Leap POC</title>
+  </head>
+  <script src="javascript.js"></script>
+  <script>
+    var socket = io();
+
+    socket.on("sendData", function (dataFromServer) {
+      let dataReceived = dataFromServer.description; //Make a var of the incomming data
+      console.log(dataReceived);
+    });
+  </script>
+  <body id="color">
+    <div id="sensor1"></div>
+    <div id="sensor2"></div>
+    <div id="peoplecount"></div>
+  </body>
+</html>
