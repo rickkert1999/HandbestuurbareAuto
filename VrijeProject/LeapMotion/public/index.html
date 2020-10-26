@@ -22,7 +22,7 @@
   <button id="btRight" class="buttons" data-direction="r">Right</button>
   <script>
     document.getElementById("btForward").addEventListener("click", dataSendForward);
-    document.getElementById("btBackwards").addEventListener("click", dataSendBackwards);
+    document.getElementById("btBack").addEventListener("click", dataSendBackwards);
     document.getElementById("btLeft").addEventListener("click", dataSendLeft);
     document.getElementById("btRight").addEventListener("click", dataSendRight);
 
@@ -31,7 +31,7 @@
       console.log(Direction);
       socket.emit("check", Direction);
     };
-     
+
     function dataSendBackwards(){
       Direction = "b"
       console.log(Direction);
@@ -41,18 +41,14 @@
     function dataSendLeft(){
       Direction = "l"
       console.log(Direction);
-      socket.emit("check", Direction);    
+      socket.emit("check", Direction);
     };
 
     function dataSendRight(){
       Direction = "r"
       console.log(Direction);
-      socket.emit("check", Direction);    
+      socket.emit("check", Direction);
     };
-
-    socket.on('buttonval', function(data) {
-      serialPort.write(data + 'E');
-    })
   </script>
-    <script src="javascript/javascript.js"></script>
+  <!-- <script src="javascript/javascript.js"></script> -->
 </html>
