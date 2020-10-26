@@ -4,20 +4,55 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="css/style.css">
     <title>Arduino Leap POC</title>
   </head>
-  <script src="javascript.js"></script>
-  <script>
+  <!-- <script async>
+    //Get data from Arduino
     var socket = io();
 
-    socket.on("sendData", function (dataFromServer) {
-      let dataReceived = dataFromServer.description; //Make a var of the incomming data
-      console.log(dataReceived);
+    socket.on("sendData", function (dataFromServer) { //Get data form arduino
     });
+  </script> -->
+  <p>hello world</p>
+
+  <button id="btForward" class="buttons" data-direction="f">Forward</button>
+  <button id="btBack" class="buttons" data-direction="b">Backwards</button>
+  <button id="btLeft" class="buttons" data-direction="l">Left</button>
+  <button id="btRight" class="buttons" data-direction="r">Right</button>
+  <script>
+    document.getElementById("btForward").addEventListener("click", dataSendForward);
+    document.getElementById("btBackwards").addEventListener("click", dataSendBackwards);
+    document.getElementById("btLeft").addEventListener("click", dataSendLeft);
+    document.getElementById("btRight").addEventListener("click", dataSendRight);
+
+    function dataSendForward(){
+      Direction = "f"
+      console.log(Direction);
+      socket.emit("check", Direction);
+    };
+     
+    function dataSendBackwards(){
+      Direction = "b"
+      console.log(Direction);
+      socket.emit("check", Direction);
+    };
+
+    function dataSendLeft(){
+      Direction = "l"
+      console.log(Direction);
+      socket.emit("check", Direction);    
+    };
+
+    function dataSendRight(){
+      Direction = "r"
+      console.log(Direction);
+      socket.emit("check", Direction);    
+    };
+
+    socket.on('buttonval', function(data) {
+      serialPort.write(data + 'E');
+    })
   </script>
-  <body id="color">
-    <div id="sensor1"></div>
-    <div id="sensor2"></div>
-    <div id="peoplecount"></div>
-  </body>
+    <script src="javascript/javascript.js"></script>
 </html>

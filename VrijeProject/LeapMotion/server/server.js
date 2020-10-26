@@ -32,6 +32,22 @@ io.on("connection", function (socket) {
     });
   });
 
+  //Get var for client site
+  socket.on("check", value);
+
+  //Send data
+  function value(Direction) {
+    console.log(Direction);
+
+    //send data to arduino
+    port.write(Direction);
+    
+    //Let the video play and send the time to sync
+    if (Direction == "f") {
+      console.log("true")
+    } 
+  }
+
   //Whenever someone disconnects this piece of code executed
   socket.on("disconnect", function () {
     console.log("A user disconnected");
