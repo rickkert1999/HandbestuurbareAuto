@@ -44,7 +44,6 @@ io.on("connection", function (socket) {
     
     //Let the video play and send the time to sync
     if (Direction == "f") {
-      console.log("true")
     } 
   }
 
