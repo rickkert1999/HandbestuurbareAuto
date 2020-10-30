@@ -9,7 +9,7 @@ const io = require("socket.io")(http);
 //serialport npm
 const SerialPort = require("serialport");
 const Readline = require("@serialport/parser-readline");
-const port = new SerialPort("COM7");
+const port = new SerialPort("COM6");
 const parser = port.pipe(new Readline({ delimiter: "\r\n" }));
 
 const serverPort = 3000;
@@ -23,15 +23,6 @@ app.get("/", function (req, res) {
 io.on("connection", function (socket) {
   console.log("A user connected");
 
-  //sent data to the html file
-  parser.on("data", function (dataArduino) {
-    console.log(dataArduino); // Incomming data concole log
-    //sent the data for the arduino
-    socket.emit("sendData", {
-      description: dataArduino,
-    });
-  });
-
   //Get var for client site
   socket.on("check", value);
 
@@ -41,10 +32,6 @@ io.on("connection", function (socket) {
 
     //send data to arduino
     port.write(Direction);
-    
-    //Let the video play and send the time to sync
-    if (Direction == "f") {
-    } 
   }
 
   //Whenever someone disconnects this piece of code executed
