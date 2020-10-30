@@ -11,8 +11,8 @@ void setup()
   // initialize serial:
   Serial.begin(9600);
   // define te servo signal pin
-  servo_left.attach(2);
-  servo_right.attach(3);
+  servo_left.attach(4);
+  servo_right.attach(5);
 }
 
 void loop()
