@@ -33,40 +33,40 @@ void setup()
 
 void loop()
 {
-//  while (Serial.available())
-//  {
-//    //Recieve data from Node and write it to a String
-//    char inChar = (char)Serial.read();
-//    if (inChar == 'f')
-//    {
-//      servo_left.write(100);
-//      servo_right.write(80);
-//    }
-//    if (inChar == 'b')
-//    {
-//      servo_left.write(80);
-//      servo_right.write(100);
-//    }
-//    if (inChar == 'l')
-//    {
-//      servo_left.write(80);
-//      servo_right.write(80);
-//    }
-//    if (inChar == 'r')
-//    {
-//      servo_left.write(100);
-//      servo_right.write(100);
-//    }
-//    if (inChar == 's')
-//    {
-//      servo_left.write(90);
-//      servo_right.write(90);
-//    }
-//    else
-//    {
-//      inputString += inChar;
-//    }
-//  }
+  while (Serial.available())
+  {
+    //Recieve data from Node and write it to a String
+    char inChar = (char)Serial.read();
+    if (inChar == 'f')
+    {
+      servo_left.write(100);
+      servo_right.write(80);
+    }
+    if (inChar == 'b')
+    {
+      servo_left.write(80);
+      servo_right.write(100);
+    }
+    if (inChar == 'l')
+    {
+      servo_left.write(80);
+      servo_right.write(80);
+    }
+    if (inChar == 'r')
+    {
+      servo_left.write(100);
+      servo_right.write(100);
+    }
+    if (inChar == 's')
+    {
+      servo_left.write(90);
+      servo_right.write(90);
+    }
+    else
+    {
+      inputString += inChar;
+    }
+  }
 
   if (bluetooth.available()) // If the bluetooth sent any characters
   {   
