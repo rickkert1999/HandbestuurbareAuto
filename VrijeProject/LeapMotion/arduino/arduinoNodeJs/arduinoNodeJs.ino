@@ -18,80 +18,38 @@ void setup()
   // initialize serial:
   Serial.begin(9600);
   // define te servo signal pin
-  servo_left.attach(4);
-  servo_right.attach(5);
+  servo_left.attach(5);
+  servo_right.attach(4);
 
-  bluetooth.begin(115200); // The Bluetooth Mate defaults to 115200bps
-  bluetooth.print("$");    // Print three times individually
-  bluetooth.print("$");
-  bluetooth.println("$");          // Enter command mode
-  delay(100);                    // Short delay, wait for the Mate to send back CMD
-  bluetooth.println("U,9600,N"); // Temporarily Change the baudrate to 9600, no parity
-  // 115200 can be too fast at times for NewSoftSerial to relay the data reliably
-  bluetooth.begin(9600); // Start bluetooth serial at 9600
+  // The Bluetooth Mate defaults to 115200bps 
+  bluetooth.begin(115200);
 }
 
 void loop()
 {
-  while (Serial.available())
-  {
-    //Recieve data from Node and write it to a String
-    char inChar = (char)Serial.read();
-    if (inChar == 'f')
-    {
-      servo_left.write(100);
-      servo_right.write(80);
-    }
-    if (inChar == 'b')
-    {
-      servo_left.write(80);
-      servo_right.write(100);
-    }
-    if (inChar == 'l')
-    {
-      servo_left.write(80);
-      servo_right.write(80);
-    }
-    if (inChar == 'r')
-    {
-      servo_left.write(100);
-      servo_right.write(100);
-    }
-    if (inChar == 's')
-    {
-      servo_left.write(90);
-      servo_right.write(90);
-    }
-    else
-    {
-      inputString += inChar;
-    }
-  }
-
-  if (bluetooth.available()) // If the bluetooth sent any characters
+  while (bluetooth.available()) // While the bluetooth sent any characters
   {   
     // Recieve data from Node and write it to a String
-    char inChar = (char)Serial.read();
+    char inChar = (char)bluetooth.read();
     if (inChar == 'f')
     {
-      servo_left.write(100);
+      servo_left.write(103);
       servo_right.write(80);      
-      Serial.print("f");
     }
     if (inChar == 'b')
     {
       servo_left.write(80);
-      servo_right.write(100);
-    }
-    if (inChar == 'l')
-    {
-      servo_left.write(80);
-      servo_right.write(80);
+      servo_right.write(103);    
     }
     if (inChar == 'r')
     {
-      servo_left.write(100);
-      servo_right.write(100);
+      servo_left.write(97);
+      servo_right.write(97);
+    }
+    if (inChar == 'l')
+    {
+      servo_left.write(83);
+      servo_right.write(83);
     }
     if (inChar == 's')
     {

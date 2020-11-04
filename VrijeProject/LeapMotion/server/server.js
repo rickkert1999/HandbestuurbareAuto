@@ -9,7 +9,7 @@ const io = require("socket.io")(http);
 //serialport npm
 const SerialPort = require("serialport");
 const Readline = require("@serialport/parser-readline");
-const port = new SerialPort("COM7");
+const port = new SerialPort("COM6");
 const parser = port.pipe(new Readline({ delimiter: "\r\n" }));
 
 const serverPort = 3000;

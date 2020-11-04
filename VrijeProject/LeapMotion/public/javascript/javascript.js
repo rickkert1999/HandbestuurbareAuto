@@ -39,16 +39,16 @@ Leap.loop(options, function (frame) {
 
     //Tell the arduino what to do
     if (frame.hands.length === 2) { 
-      if (rightHand < 0.5 && leftHand < 0.5){
+      if (rightHand > 0.5 && leftHand > 0.5){
         socket.emit("check", "f");    
       }
-      if (rightHand > 0.5 && leftHand > 0.5){
+      if (rightHand < 0.5 && leftHand < 0.5){
         socket.emit("check", "b");    
       }
-      if (rightHand < 0.5 && leftHand > 0.5){
+      if (rightHand > 0.5 && leftHand < 0.5){
         socket.emit("check", "r");    
       }
-      if (rightHand > 0.5 && leftHand < 0.5){
+      if (rightHand < 0.5 && leftHand > 0.5){
         socket.emit("check", "l");    
       }
     } //Stop if there are no hands in the frame of the Leap Motion
