@@ -7,6 +7,7 @@ In kombinatie met de Arduino en leap Motion heb ik een rijdend voorwerp gemaakt.
   - [Installeren](#installeren)
   - [Arduino](#arduino)
   - [Gebruik](#gebruik)
+  - [Voorbeeld](#voorbeeld)
 
 ## Clone
 
@@ -26,7 +27,7 @@ npm i socket.io, express, serialport
 
 ## Arduino
 
-Zet de arduino op zo als in de volgende [link](https://www.circuito.io/app?components=10190,10190,10218,11021,2631981) wordt aan gegeven.
+Zet de arduino op zo als in de volgende [link](https://www.circuito.io/app?components=10190,10190,10218,11021,395589) wordt aan gegeven (De HM-10 BLE Bleutooth 4.0 module staat gelijk aan de [SparkFun Bluetooth Mate silver](https://www.sparkfun.com/products/12576) die gebruikt is in dit project).
 
 Upload hierna het bestand arduinoNodeJs.ino op de arduino.
 
@@ -37,3 +38,7 @@ Zet vervolgens de server aan door het volgende commando.
 ```
 node .\server.js
 ```
+
+## Voorbeeld 
+
+![Example](img/example.jpeg)

@@ -43,9 +43,9 @@ void loop()
     }
     if (inChar == 'r')
     {
-      servo_left.write(97);
-      servo_right.write(97);
-    }
+      servo_left.write(100);
+      servo_right.write(100);
+    } 
     if (inChar == 'l')
     {
       servo_left.write(83);
