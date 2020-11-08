@@ -41,4 +41,4 @@ node .\server.js
 
 ## Voorbeeld 
 
-![Example](img/example.jpeg)
+![Example](LeapMotion/img/example.jpeg)
